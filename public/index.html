@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create User | Node.js Assignment</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <strong>Node.js Assignment</strong>
+    <div class="links">
+      <a class="active" href="/">Create User</a>
+      <a href="/users.html">MongoDB Users</a>
+      <a href="/live-users.html">Live Room</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <h1>JSON Web Service + Socket.IO</h1>
+      <p>Submit the form using jQuery/AJAX, store the record in MongoDB, and connect the inserted user to the <strong>live_users</strong> Socket.IO room.</p>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Create a user</h2>
+        <p class="subtext">Creation and update timestamps are generated automatically by MongoDB/Mongoose.</p>
+
+        <form id="userForm">
+          <fieldset>
+            <legend>Personal details</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input id="firstName" name="firstName" maxlength="50" required autocomplete="given-name">
+              </div>
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input id="lastName" name="lastName" maxlength="50" required autocomplete="family-name">
+              </div>
+              <div class="field">
+                <label for="mobile">Mobile number</label>
+                <input id="mobile" name="mobile" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required autocomplete="tel">
+                <small>Exactly 10 digits.</small>
+              </div>
+              <div class="field">
+                <label for="email">Email ID</label>
+                <input id="email" name="email" type="email" required autocomplete="email">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Address</legend>
+            <div class="form-grid">
+              <div class="field full">
+                <label for="street">Street</label>
+                <input id="street" name="street" maxlength="150" required autocomplete="street-address">
+              </div>
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" maxlength="80" required autocomplete="address-level2">
+              </div>
+              <div class="field">
+                <label for="state">State</label>
+                <input id="state" name="state" maxlength="80" required autocomplete="address-level1">
+              </div>
+              <div class="field full">
+                <label for="country">Country</label>
+                <input id="country" name="country" maxlength="80" required autocomplete="country-name">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Login details</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="loginId">Login ID</label>
+                <input id="loginId" name="loginId" pattern="[A-Za-z0-9]{8}" minlength="8" maxlength="8" required autocomplete="username">
+                <small>Exactly 8 alphanumeric characters.</small>
+              </div>
+              <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" minlength="6" maxlength="6" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{6}" required autocomplete="new-password">
+                <small>Exactly 6 characters with uppercase, lowercase, and special character.</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <button id="saveButton" type="submit">Save User</button>
+          <div id="formStatus" class="status" role="status"></div>
+        </form>
+      </section>
+
+      <aside class="card">
+        <div class="live-meta">
+          <div>
+            <h2>Connected users</h2>
+            <p class="subtext">Room: live_users</p>
+          </div>
+          <span class="badge"><span id="liveCount">0</span> live</span>
+        </div>
+        <div id="liveUsers" class="list">
+          <div class="empty">No inserted users are connected right now.</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="userModal" class="modal-backdrop" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle">User information</h2>
+        <button class="close-modal" type="button" aria-label="Close">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/create-user.js"></script>
+</body>
+</html>

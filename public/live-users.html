@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Users | Node.js Assignment</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <strong>Node.js Assignment</strong>
+    <div class="links">
+      <a href="/">Create User</a>
+      <a href="/users.html">MongoDB Users</a>
+      <a class="active" href="/live-users.html">Live Room</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <h1>Socket.IO live_users room</h1>
+      <p>The list updates in real time. Click an email/socket entry to call the existing user API and show the stored information in a popup.</p>
+    </header>
+
+    <section class="card">
+      <div class="live-meta">
+        <div>
+          <h2>Currently connected</h2>
+          <p class="subtext">Only inserted users are counted; observer browsers are not.</p>
+        </div>
+        <span class="badge"><span id="liveCount">0</span> live</span>
+      </div>
+      <div id="connectionStatus" class="status info">Connecting to Socket.IO…</div>
+      <div id="liveUsers" class="list">
+        <div class="empty">Waiting for live users…</div>
+      </div>
+      <div class="actions">
+        <a class="button" href="/">Create and join a user</a>
+        <a class="button secondary" href="/users.html">View database records</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="userModal" class="modal-backdrop" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle">User information</h2>
+        <button class="close-modal" type="button" aria-label="Close">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/live-users.js"></script>
+</body>
+</html>

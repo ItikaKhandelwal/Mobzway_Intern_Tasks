@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MongoDB Users | Node.js Assignment</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <strong>Node.js Assignment</strong>
+    <div class="links">
+      <a href="/">Create User</a>
+      <a class="active" href="/users.html">MongoDB Users</a>
+      <a href="/live-users.html">Live Room</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <h1>Stored MongoDB users</h1>
+      <p>This page calls the JSON read web service using jQuery/AJAX. Click any row to retrieve the complete safe user record from the API.</p>
+    </header>
+
+    <section class="card">
+      <div class="live-meta">
+        <div>
+          <h2>All records</h2>
+          <p class="subtext"><span id="userCount">0</span> users found</p>
+        </div>
+        <button id="refreshUsers" class="button secondary" type="button">Refresh</button>
+      </div>
+      <div id="pageStatus" class="status info">Loading MongoDB records…</div>
+      <div id="usersTableWrap" class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Login ID</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody id="usersBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="userModal" class="modal-backdrop" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle">User information</h2>
+        <button class="close-modal" type="button" aria-label="Close">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/users.js"></script>
+</body>
+</html>

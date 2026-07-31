@@ -1,0 +1,21 @@
+{
+  "name": "node-api-socketio-assignment",
+  "version": "1.0.0",
+  "description": "JSON API with MongoDB, jQuery AJAX forms, and Socket.IO live users room.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongodb": "^7.5.0",
+    "mongoose": "^8.18.0",
+    "socket.io": "^4.8.1"
+  }
+}
