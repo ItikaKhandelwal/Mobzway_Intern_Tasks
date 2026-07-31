@@ -116,9 +116,9 @@ The included `render.yaml` can also be used for a Blueprint deployment.
 
 ## Example valid input
 
-- First name: `Jatin`
-- Last name: `Agrawal`
+- First name: `Itika`
+- Last name: `Khandelwal`
 - Mobile: `9876543210`
-- Email: `jatin@example.com`
-- Login ID: `Jatin123`
+- Email: `itika@example.com`
+- Login ID: `Itika123`
 - Password: `Abc@12`
